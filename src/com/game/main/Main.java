@@ -11,7 +11,7 @@ import com.game.player.Player;
 public class Main {
 //VÁLTOZTATÁS
 	public static void main(String[] args) {
-		
+//Lehel kommentje blablablablabla		
 		//Egy Player és egy enemy létrehozása
 		Player player = new Player();
 		player.setAttack(35);
