@@ -21,7 +21,7 @@ public class Main {
 		Player enemy = new Player();
 		enemy.setAttack(23);
 		enemy.setHealth(100);
-		enemy.setName("Lehel : enemy");
+		enemy.setName("Lehel : a noob szar enemy");
 		
 		//Fight létrehozása
 		Fight fight = new Fight();
