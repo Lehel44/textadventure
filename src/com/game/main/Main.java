@@ -9,7 +9,7 @@ import com.game.fight.Fight;
 import com.game.player.Player;
 
 public class Main {
-
+//VÁLTOZTATÁS
 	public static void main(String[] args) {
 		
 		//Egy Player és egy enemy létrehozása
