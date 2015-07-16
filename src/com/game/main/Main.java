@@ -17,7 +17,7 @@ public class Main {
 		player.setAttack(35);
 		player.setHealth(100);
 		player.setName("Máté : player");
-		
+		//TEST COMMIT
 		Player enemy = new Player();
 		enemy.setAttack(23);
 		enemy.setHealth(100);
