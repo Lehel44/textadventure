@@ -22,7 +22,7 @@ public class Main {
 		enemy.setAttack(23);
 		enemy.setHealth(100);
 		enemy.setName("Lehel : az istencsászár enemy");
-		//Volkorn has arrived
+		//VolkasdasdornFUCKOMGFUCK has arrived
 		//Fight létrehozása
 		Fight fight = new Fight();
 		
