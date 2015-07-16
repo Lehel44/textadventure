@@ -17,12 +17,12 @@ public class Main {
 		player.setAttack(35);
 		player.setHealth(100);
 		player.setName("Máté : player");
-		//TEST COMMIT
+		//TEST COMMIT 
 		Player enemy = new Player();
 		enemy.setAttack(23);
 		enemy.setHealth(100);
 		enemy.setName("Lehel : az istencsászár enemy");
-		
+		//Volkorn has arrived
 		//Fight létrehozása
 		Fight fight = new Fight();
 		
