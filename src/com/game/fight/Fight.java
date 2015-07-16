@@ -14,6 +14,7 @@ public class Fight {
 	
 	public Fight() {
 		random = new Random();
+		// 1 vagy 0
 		x = random.nextInt(2); 
 	}
 	
@@ -42,7 +43,7 @@ public class Fight {
 	}
 
 
-	// Harc
+	// Harc szimuláció
 	public void doFight(Player player, Player enemy) {
 			String whoFirst, whoSecond;
 			Player first, second;

@@ -9,9 +9,9 @@ import com.game.fight.Fight;
 import com.game.player.Player;
 
 public class Main {
-//VÁLTOZTATÁS
+
 	public static void main(String[] args) {
-//Lehel kommentje blablablablabla
+
 		//Egy Player és egy enemy létrehozása
 		Player player = new Player();
 		player.setAttack(35);
@@ -73,6 +73,7 @@ public class Main {
 				// Ha van fight, akkor írjuk ki
 				if(lastStation.getFight() != null) {
 					System.out.println("FIGHT ELKEZDVE!");
+					//Elindítja a fightot, két player paraméterrel
 					lastStation.getFight().doFight(lastStation.getFight().getPlayer(), lastStation.getFight().getEnemy());
 				}
 				else {
