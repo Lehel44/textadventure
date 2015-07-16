@@ -23,6 +23,7 @@ public class Main {
 		enemy.setHealth(100);
 		enemy.setName("Lehel : az istencsászár enemy");
 		//Ne basztasd a kommentemet
+
 		//Fight létrehozása
 		Fight fight = new Fight();
 		
