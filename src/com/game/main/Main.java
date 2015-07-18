@@ -17,9 +17,11 @@ public class Main {
 		View view = new View();
 		view.init();
 
+		String stationName = "Station1.txt";
 		while (true) {
 
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
 			// Kezdı·llom·s f·jl neve
 
 			JSONParser parser = new JSONParser();
@@ -57,10 +59,10 @@ public class Main {
 				i = 0;
 				// view.getF().revalidate();
 				// view.getF().repaint();
-//				String line = br.readLine();
-//
-//				stationName = station.getExits().get(line) + ".txt";
-				
+				// String line = br.readLine();
+				//
+				// stationName = station.getExits().get(line) + ".txt";
+
 			} catch (Exception e) {
 				e.printStackTrace();
 
@@ -68,4 +70,5 @@ public class Main {
 		}
 
 	}
+
 }
