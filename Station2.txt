@@ -1,0 +1,8 @@
+{
+    "story": "Kezdõsztori: \nHárom barlangot látsz, merre mész tovább?",
+    "exits": {
+        "A sötét barlangba": "Station2",
+        "A pókhálósba": "Station3",
+        "A vízibe": "Station1"
+    }
+}

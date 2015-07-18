@@ -1,0 +1,8 @@
+{
+    "story": "Három völgyet látsz, merre mész tovább?",
+    "exits": {
+        "A virágosba": "Station2",
+        "A sötétbe": "Station3",
+        "A ködösbe": "Station1"
+    }
+}

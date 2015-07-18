@@ -1,0 +1,8 @@
+{
+    "story": "Kezdõsztori: \nHárom utat látsz, merre mész tovább?",
+    "exits": {
+        "Bal": "Station2",
+        "Középsõ": "Station1",
+	"Jobb": "Station3"
+    }
+}

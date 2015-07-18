@@ -2,16 +2,23 @@ package com.game.main;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.print.attribute.TextSyntax;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
 public class View {
-	int init() {
-		JFrame f = new JFrame("Hello, !");
+
+	private JFrame f;
+	JTextArea textArea;
+	private JButton button1, button2, button3;
+
+	public void init() {
+
+		f = new JFrame("Hello, !");
 		// Sets the behavior for when the window is closed
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// Add a layout manager so that the button is not placed on top of the
@@ -30,10 +37,10 @@ public class View {
 		gBC.gridx = 1;
 		gBC.fill = GridBagConstraints.EAST;
 		gBC.gridy = 0;
-		JTextArea textArea = new JTextArea("Shamok területén élõ shadoniak és nomádok életét.");
+		textArea = new JTextArea();
 		textArea.setEditable(false);
 		textArea.setLineWrap(true);
-		//textArea.setWrapStyleWord(true);
+		// textArea.setWrapStyleWord(true);
 		f.add(textArea, gBC);
 		gBC.fill = GridBagConstraints.HORIZONTAL;
 		// gBC.gridheight = 11;
@@ -46,19 +53,70 @@ public class View {
 		gBC.weightx = 0.5;
 		gBC.gridx = 1;
 		gBC.gridy = 1;
-		f.add(new JButton("1"), gBC);
+		button1 = new JButton();
+		button1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Main.stationName = Main.station.getExits().get(button1.getText()) + ".txt";
+				// display/center the jdialog when the button is pressed
+				JDialog d = new JDialog(f, "Hello", true);
+				System.out.println(Main.station.getExits().get(button1.getText()) + ".txt");
+			}
+		});
+		f.add(button1, gBC);
 		gBC.weightx = 0.5;
 		gBC.gridx = 2;
 		gBC.gridy = 1;
-		f.add(new JButton("2"), gBC);
+		button2 = new JButton();
+		f.add(button2 = new JButton(), gBC);
 		gBC.weightx = 0.5;
 		gBC.gridx = 3;
 		gBC.gridy = 1;
-		f.add(new JButton("3"), gBC);
+		button3 = new JButton();
+		f.add(button3, gBC);
 		// Arrange the components inside the window
 		f.pack();
 		// By default, the window is not visible. Make it visible.
 		f.setVisible(true);
-		return 0;
 	}
+
+	public JFrame getF() {
+		return f;
+	}
+
+	public void setF(JFrame f) {
+		this.f = f;
+	}
+
+	public JTextArea getTextArea() {
+		return textArea;
+	}
+
+	public void setTextArea(JTextArea textArea) {
+		this.textArea = textArea;
+	}
+
+	public JButton getButton1() {
+		return button1;
+	}
+
+	public void setButton1(JButton button1) {
+		this.button1 = button1;
+	}
+
+	public JButton getButton2() {
+		return button2;
+	}
+
+	public void setButton2(JButton button2) {
+		this.button2 = button2;
+	}
+
+	public JButton getButton3() {
+		return button3;
+	}
+
+	public void setButton3(JButton button3) {
+		this.button3 = button3;
+	}
+
 }

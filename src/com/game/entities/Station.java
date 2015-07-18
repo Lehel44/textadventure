@@ -8,7 +8,7 @@ import com.game.fight.Fight;
 public class Station {
 
 	private String story;
-	private Map<String, Station> exits;
+	private Map<String, String> exits;
 	private Fight fight;
 	
 	
@@ -25,11 +25,11 @@ public class Station {
 	}
 
 
-	public Map<String, Station> getExits() {
+	public Map<String, String> getExits() {
 		return exits;
 	}
 
-	public void setExits(Map<String, Station> exits) {
+	public void setExits(Map<String, String> exits) {
 		this.exits = exits;
 	}
 	
@@ -50,6 +50,11 @@ public class Station {
 			System.out.print(s + "   ");
 		}
 		System.out.println();
+	}
+	
+	@Override
+	public String toString() {
+		return this.getClass().getName();
 	}
 	
 }

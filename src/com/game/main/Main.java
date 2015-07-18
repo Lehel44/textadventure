@@ -2,114 +2,70 @@ package com.game.main;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.HashMap;
 import java.util.Map;
-
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-
 import com.game.entities.Station;
-import com.game.fight.Fight;
-import com.game.player.Player;
 
 public class Main {
+	public static String stationName = "Station1.txt";
+	public static Station station = new Station();
 
 	public static void main(String[] args) {
+
 		View view = new View();
 		view.init();
-		/*
-		//Egy Player és egy enemy létrehozása
-		Player player = new Player();
-		player.setAttack(35);
-		player.setHealth(100);
-		player.setName("Máté : player");
-		//TEST COMMIT 
-		Player enemy = new Player();
-		enemy.setAttack(23);
-		enemy.setHealth(100);
-		enemy.setName("Lehel : az istencsászár enemy");
-		//Ne basztasd a kommentemet
 
-		//Fight létrehozása
-		Fight fight = new Fight();
-		
-		//Player és enemy hozzáadása a fight-hoz
-		fight.setPlayer(player);
-		fight.setEnemy(enemy);
-		
-		//Állomás létrehozása
-		Station station1 = new Station();
-		Station station2 = new Station();
-		Station station3 = new Station();
-		Station station4 = new Station();
-		
-		//Station1
-		station1.setStory("Melyik utat választod?");
-		station1.getExits().put("Bal", station2);
-		station1.getExits().put("Középsõ", station3);
-		station1.getExits().put("Jobb", station4);
-		// Fight hozzáadása Station 1-hez
-		station1.setFight(fight);
-		
-		//Station2
-		station2.setStory("Melyik ajtót választod?");
-		station2.getExits().put("Piros", station2);
-		station2.getExits().put("Kék", station3);
-		station2.getExits().put("Zöld", station1);
-		station2.setFight(fight);
-		
-		//Kiinduló állomás
-		station1.printStory();
-		station1.getFight().doFight(station1.getFight().getPlayer(), station1.getFight().getEnemy());
-		station1.printExitLabels();
-		JSONObject json = new JSONObject();
-		//Utolsó állomás
-		Station lastStation = station1;
-		
-		while(true) {
-			
+		while (true) {
+
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-			
+			// Kezdõállomás fájl neve
+
+			JSONParser parser = new JSONParser();
 			try {
-				// Következõ állomás beolvasása
-				String line = br.readLine();
-				// Következõ állomás betöltése
-				lastStation = lastStation.getExits().get(line);
-				// Jelenlegi állomás sztorijának kiiratása
-				lastStation.printStory();
-				// Ha van fight, akkor írjuk ki
-				if(lastStation.getFight() != null) {
-					System.out.println("FIGHT ELKEZDVE!");
-					//Elindítja a fightot, két player paraméterrel
-					lastStation.getFight().doFight(lastStation.getFight().getPlayer(), lastStation.getFight().getEnemy());
-				}
-				else {
-					System.out.println("lasStation.getfight == null");
-				}
-				lastStation.printExitLabels();
 
-			} catch (IOException e) {
+				// Station beolvasása fájlból JSON-be
+				Object obj = parser.parse(new FileReader(stationName));
+				System.out.println("????");
+				// Station tulajdonságok mentése
+				JSONObject jsonStation = (JSONObject) obj;
+				String jsonStory = (String) jsonStation.get("story");
+				Map<String, String> jsonExits = (Map) jsonStation.get("exits");
+				// Station beállítása JSONObject-bõl
+				station.setStory(jsonStory);
+				station.setExits(jsonExits);
+				// Station tulajdonságok kiiratása
+				station.printStory();
+				station.printExitLabels();
+				// JTextArea és JButtonok beállítása
+				// view.setStory(jsonStory);
+				view.getTextArea().setText(jsonStory);
+				int i = 0;
+				for (String text : station.getExits().keySet()) {
+					if (i == 0) {
+						view.getButton1().setText(text);
+					}
+					if (i == 1) {
+						view.getButton2().setText(text);
+					}
+					if (i == 2) {
+						view.getButton3().setText(text);
+					}
+					i++;
+				}
+				i = 0;
+				// view.getF().revalidate();
+				// view.getF().repaint();
+//				String line = br.readLine();
+//
+//				stationName = station.getExits().get(line) + ".txt";
+				
+			} catch (Exception e) {
 				e.printStackTrace();
-			} 
-		}
-		
-		JSONParser parser = new JSONParser();
-		try{
-			Object obj = parser.parse(new FileReader("test1.txt"));
-			JSONObject jsonObject = (JSONObject) obj;
-			String story = (String) jsonObject.get("story");
-			@SuppressWarnings("unchecked")
-			Map<String, Station> exits = (Map) jsonObject.get("exits");
-			System.out.println(story);
-			System.out.println(exits.get("Exit2"));
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-		*/
 
-		
+			}
+		}
+
 	}
-
 }
