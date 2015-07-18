@@ -27,9 +27,10 @@ public class Main {
 			JSONParser parser = new JSONParser();
 			try {
 
+				Station station = new Station();
 				// Station beolvasása fájlból JSON-be
 				Object obj = parser.parse(new FileReader(stationName));
-				System.out.println("????");
+
 				// Station tulajdonságok mentése
 				JSONObject jsonStation = (JSONObject) obj;
 				String jsonStory = (String) jsonStation.get("story");
@@ -40,6 +41,7 @@ public class Main {
 				// Station tulajdonságok kiiratása
 				station.printStory();
 				station.printExitLabels();
+
 				// JTextArea és JButtonok beállítása
 				// view.setStory(jsonStory);
 				view.getTextArea().setText(jsonStory);
@@ -69,6 +71,6 @@ public class Main {
 			}
 		}
 
-	}
-
+		
+	} 
 }
