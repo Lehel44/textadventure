@@ -19,7 +19,6 @@ public class Fight {
 	}
 	
 	
-	
 	public Player getPlayer() {
 		return player;
 	}

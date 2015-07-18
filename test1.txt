@@ -1,0 +1,9 @@
+{
+    "story": "A nogradi vaaampiir",
+    "exits": {
+        "Exit1": "exitobj1",
+        "Exit2": "exitobj2",
+        "Exit3": "exitobj3"
+    },
+    "fight": "fight1"
+}
