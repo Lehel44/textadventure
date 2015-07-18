@@ -13,6 +13,7 @@ public class Player {
 	private int defense = 0;
 	private int luck = 0;
 	private int swiftness = 0;
+	// A String az item neve, az Item az objektum
 	private Map<String, Item> inventory;
 	private int skillPoints = 20;
 	
@@ -23,6 +24,7 @@ public class Player {
 	public String getName() {
 		return name;
 	}
+	
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -84,11 +86,17 @@ public class Player {
 	public Map<String, Item> getInventory() {
 		return inventory;
 	}
-
+	
+	/**
+	 * Kiírja az elosztható skillpontok számát.
+	 */
 	public void printSkillPoints() {
 		System.out.println("Elosztható pontjaid: " + skillPoints);
 	}
 	
+	/**
+	 * Kiírja a játékos aktuális statisztikáit.
+	 */
 	public void printStats() {
 		System.out.println(name);
 		System.out.println("-----------------------");
@@ -100,6 +108,9 @@ public class Player {
 		System.out.println("\n");
 	}
 	
+	/**
+	 * Kiírja az inventoryban található itemek neveit.
+	 */
 	public void printInventory() {
 		for(Item item : inventory.values()) {
 			item.printItem();

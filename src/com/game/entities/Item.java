@@ -9,6 +9,9 @@ public class Item {
 	protected int luckValue;
 	protected int swiftnessValue;
 	
+	/**
+	 * Konstruktor.
+	 */
 	public Item() {
 	}
 
@@ -71,6 +74,9 @@ public class Item {
 		this.swiftnessValue = swiftnessValue;
 	}
 	
+	/**
+	 * Kiírja egy item statisztikáit.
+	 */
 	public void printItem() {
 		System.out.println("\n");
 		System.out.println(name);

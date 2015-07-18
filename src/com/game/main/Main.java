@@ -1,28 +1,37 @@
 package com.game.main;
 
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 import com.game.entities.Station;
 import com.game.fight.Fight;
 import com.game.player.Player;
 
 public class Main {
-//VÁLTOZTATÁS
+
 	public static void main(String[] args) {
-		//Lehel kommentje blablablablabla
+		View view = new View();
+		view.init();
+		/*
 		//Egy Player és egy enemy létrehozása
 		Player player = new Player();
 		player.setAttack(35);
 		player.setHealth(100);
 		player.setName("Máté : player");
-		
+		//TEST COMMIT 
 		Player enemy = new Player();
 		enemy.setAttack(23);
 		enemy.setHealth(100);
 		enemy.setName("Lehel : az istencsászár enemy");
-		
+		//Ne basztasd a kommentemet
+
 		//Fight létrehozása
 		Fight fight = new Fight();
 		
@@ -55,7 +64,7 @@ public class Main {
 		station1.printStory();
 		station1.getFight().doFight(station1.getFight().getPlayer(), station1.getFight().getEnemy());
 		station1.printExitLabels();
-		
+		JSONObject json = new JSONObject();
 		//Utolsó állomás
 		Station lastStation = station1;
 		
@@ -73,6 +82,7 @@ public class Main {
 				// Ha van fight, akkor írjuk ki
 				if(lastStation.getFight() != null) {
 					System.out.println("FIGHT ELKEZDVE!");
+					//Elindítja a fightot, két player paraméterrel
 					lastStation.getFight().doFight(lastStation.getFight().getPlayer(), lastStation.getFight().getEnemy());
 				}
 				else {
@@ -84,7 +94,22 @@ public class Main {
 				e.printStackTrace();
 			} 
 		}
+		
+		JSONParser parser = new JSONParser();
+		try{
+			Object obj = parser.parse(new FileReader("test1.txt"));
+			JSONObject jsonObject = (JSONObject) obj;
+			String story = (String) jsonObject.get("story");
+			@SuppressWarnings("unchecked")
+			Map<String, Station> exits = (Map) jsonObject.get("exits");
+			System.out.println(story);
+			System.out.println(exits.get("Exit2"));
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		*/
 
+		
 	}
 
 }
